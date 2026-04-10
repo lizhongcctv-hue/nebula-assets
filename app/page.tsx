@@ -44,8 +44,21 @@ export default async function Home() {
               </svg>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">Nebula Assets</h1>
-              <p className="text-xs text-gray-400">免费4K影视素材库</p>
+              {/* 艺术字标题 */}
+              <h1 className="text-xl font-black tracking-tight"
+                  style={{
+                    background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '0 0 30px rgba(168, 85, 247, 0.3)',
+                    fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif',
+                    letterSpacing: '-0.02em'
+                  }}
+              >
+                Nebula Assets
+              </h1>
+              <p className="text-xs text-gray-400 mt-0.5">免费4K影视素材库</p>
             </div>
           </div>
           
