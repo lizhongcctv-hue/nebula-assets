@@ -1,7 +1,7 @@
 import { getVideoAssets, getCategories } from '@/lib/notion';
 import VideoCard from '@/components/VideoCard';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 60;
 
 export default async function Home() {
   const videos = await getVideoAssets();
@@ -13,48 +13,35 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+      
+      {/* 顶部留白 - 让 header 不紧贴屏幕顶部 */}
+      <div style={{ height: '24px' }} />
+      
       {/* Header */}
-      <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-40" style={{ paddingTop: '32px' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+      <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* Logo SVG */}
-            <div className="w-10 h-10 relative">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <defs>
-                  <linearGradient id="nebulaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#a855f7" />
-                    <stop offset="50%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#3b82f6" />
-                  </linearGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
-                <circle cx="50" cy="50" r="45" fill="url(#nebulaGrad)" opacity="0.15"/>
-                <circle cx="50" cy="50" r="42" fill="none" stroke="url(#nebulaGrad)" strokeWidth="2" opacity="0.6"/>
-                <circle cx="20" cy="35" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="80" cy="40" r="2" fill="#6366f1" opacity="0.6"/>
-                <circle cx="75" cy="70" r="2.5" fill="#3b82f6" opacity="0.7"/>
-                <text x="50" y="68" fontFamily="system-ui, sans-serif" fontSize="48" fontWeight="800" fill="url(#nebulaGrad)" textAnchor="middle" filter="url(#glow)">N</text>
-                <text x="72" y="75" fontFamily="system-ui, sans-serif" fontSize="10" fontWeight="700" fill="#fbbf24">4K</text>
-              </svg>
+            {/* 简洁 Logo：渐变 N 字母 */}
+            <div 
+              className="w-9 h-9 rounded-lg flex items-center justify-center font-black text-lg"
+              style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)',
+                boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)',
+              }}
+            >
+              N
             </div>
             <div>
               {/* 艺术字标题 */}
-              <h1 className="text-xl font-black tracking-tight"
-                  style={{
-                    background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    textShadow: '0 0 30px rgba(168, 85, 247, 0.3)',
-                    fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif',
-                    letterSpacing: '-0.02em'
-                  }}
+              <h1 
+                className="text-xl font-black tracking-tight"
+                style={{
+                  background: 'linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #60a5fa 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                }}
               >
                 Nebula Assets
               </h1>
@@ -141,7 +128,7 @@ export default async function Home() {
       <footer className="border-t border-gray-800/50 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Nebula Assets. 本站已入驻爱发电，唯一官方主页：
+            © 2026 Nebula Assets. 本站在入驻爱发电，唯一官方主页：
             <a href={afdLink} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
               {afdLink.replace('https://', '')}
             </a>
