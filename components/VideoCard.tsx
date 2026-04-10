@@ -30,9 +30,9 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
         {/* Cover Image */}
         <div className="relative aspect-video overflow-hidden">
           <div 
-            className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 group-hover:scale-105 transition-transform duration-500"
+            className="absolute inset-0 group-hover:scale-105 transition-transform duration-500"
             style={{
-              backgroundImage: video.coverUrl ? `url(${video.coverUrl})` : undefined,
+              backgroundImage: video.coverUrl ? `url(${video.coverUrl})` : 'linear-gradient(to bottom right, rgba(88, 28, 135, 0.3), rgba(30, 58, 138, 0.3))',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

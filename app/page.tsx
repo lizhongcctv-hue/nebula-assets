@@ -17,8 +17,31 @@ export default async function Home() {
       <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
-              <span className="text-xl">🌌</span>
+            {/* Logo SVG */}
+            <div className="w-10 h-10 relative">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <defs>
+                  <linearGradient id="nebulaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#a855f7" />
+                    <stop offset="50%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#3b82f6" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <circle cx="50" cy="50" r="45" fill="url(#nebulaGrad)" opacity="0.15"/>
+                <circle cx="50" cy="50" r="42" fill="none" stroke="url(#nebulaGrad)" strokeWidth="2" opacity="0.6"/>
+                <circle cx="20" cy="35" r="3" fill="#a855f7" opacity="0.8"/>
+                <circle cx="80" cy="40" r="2" fill="#6366f1" opacity="0.6"/>
+                <circle cx="75" cy="70" r="2.5" fill="#3b82f6" opacity="0.7"/>
+                <text x="50" y="68" fontFamily="system-ui, sans-serif" fontSize="48" fontWeight="800" fill="url(#nebulaGrad)" textAnchor="middle" filter="url(#glow)">N</text>
+                <text x="72" y="75" fontFamily="system-ui, sans-serif" fontSize="10" fontWeight="700" fill="#fbbf24">4K</text>
+              </svg>
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">Nebula Assets</h1>
