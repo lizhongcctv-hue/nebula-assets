@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Test</title>
+  <style>
+    body { background: #0a0a0a; padding: 40px; font-family: system-ui; }
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-svg { width: 40px; height: 40px; }
+    .title {
+      font-size: 20px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+      letter-spacing: -0.02em;
+    }
+    .subtitle { font-size: 12px; color: #9ca3af; margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <!-- SVG Logo -->
+    <svg class="logo-svg" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#a855f7"/>
+          <stop offset="50%" stop-color="#6366f1"/>
+          <stop offset="100%" stop-color="#3b82f6"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="45" fill="url(#grad)" opacity="0.15"/>
+      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#grad)" stroke-width="2" opacity="0.6"/>
+      <circle cx="20" cy="35" r="3" fill="#a855f7" opacity="0.8"/>
+      <circle cx="80" cy="40" r="2" fill="#6366f1" opacity="0.6"/>
+      <circle cx="75" cy="70" r="2.5" fill="#3b82f6" opacity="0.7"/>
+      <text x="50" y="68" font-size="48" font-weight="800" fill="url(#grad)" text-anchor="middle" filter="url(#glow)">N</text>
+      <text x="72" y="75" font-size="10" font-weight="700" fill="#fbbf24">4K</text>
+    </svg>
+    
+    <div>
+      <div class="title">Nebula Assets</div>
+      <div class="subtitle">免费4K影视素材库</div>
+    </div>
+  </div>
+  
+  <p style="color: #666; margin-top: 30px; font-size: 14px;">
+    如果上面的标题是<span style="color: #a855f7">紫色渐变</span>而不是白色，说明样式正确。
+  </p>
+</body>
+</html>
