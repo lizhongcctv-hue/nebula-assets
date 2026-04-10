@@ -14,8 +14,8 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
       {/* Header */}
-      <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-40 pt-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex items-center justify-between">
+      <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mt-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Logo SVG */}
             <div className="w-10 h-10 relative">
