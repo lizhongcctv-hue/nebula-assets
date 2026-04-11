@@ -111,15 +111,15 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
                 <span className="text-2xl">👑</span>
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-2">4K 精选素材</h3>
+              <h3 className="text-xl font-bold text-white mb-2">精选 4K 素材库</h3>
               <p className="text-gray-400 mb-6">{video.name}</p>
               
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                  <span className="text-green-400">✓</span> 4K/2K 超清无水印
+                  <span className="text-green-400">✓</span> 20组精选 4K/2K 视频
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                  <span className="text-green-400">✓</span> 20组精选视频素材
+                  <span className="text-green-400">✓</span> 已分类整理，找素材不费时
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-green-400">✓</span> 夸克网盘一键保存

@@ -68,8 +68,7 @@ export default async function Home() {
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> 4K 影视素材</span>
           </h2>
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            {videos.length}+ 精选视频素材，涵盖自然风光、城市建筑、特效背景等。
-            完全免费，支持个人和商业用途。
+            从海量素材中筛选出最美的 {videos.length} 组视频，精心分类，一键获取。
           </p>
           
           {/* Stats */}
@@ -128,7 +127,7 @@ export default async function Home() {
       <footer className="border-t border-gray-800/50 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
           <p className="text-gray-500 text-sm">
-            © 2026 Nebula Assets. 部分素材来源于 Pexels 授权协议，经过 Nebula Assets 筛选整理。
+            © 2026 Nebula Assets. 部分素材来源于 Pexels 授权协议，经过 Nebula Assets 艺术加工处理。
           </p>
           <p className="text-gray-500 text-sm">
             唯一官方主页：
