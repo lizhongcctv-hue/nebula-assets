@@ -126,9 +126,12 @@ export default async function Home() {
 
       {/* Footer */}
       <footer className="border-t border-gray-800/50 py-8 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center space-y-3">
           <p className="text-gray-500 text-sm">
-            © 2026 Nebula Assets. 本站在入驻爱发电，唯一官方主页：
+            © 2026 Nebula Assets. 部分素材来源于 Pexels 授权协议，经过 Nebula Assets 筛选整理。
+          </p>
+          <p className="text-gray-500 text-sm">
+            唯一官方主页：
             <a href={afdLink} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
               {afdLink.replace('https://', '')}
             </a>

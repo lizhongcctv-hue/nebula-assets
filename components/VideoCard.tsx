@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { VideoAsset } from '@/lib/notion';
 
+const QUARK_LINK = 'https://pan.quark.cn/s/e0ff7217a068';
+
 interface VideoCardProps {
   video: VideoAsset;
   afdLink: string;
@@ -20,7 +22,7 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
   };
 
   const handlePremiumDownload = () => {
-    window.open(afdLink, '_blank');
+    window.open(QUARK_LINK, '_blank');
     setShowModal(false);
   };
 
@@ -109,35 +111,37 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
                 <span className="text-2xl">👑</span>
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-2">VIP 专属素材</h3>
+              <h3 className="text-xl font-bold text-white mb-2">4K 精选素材</h3>
               <p className="text-gray-400 mb-6">{video.name}</p>
               
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                  <span className="text-green-400">✓</span> 4K 超清无水印
+                  <span className="text-green-400">✓</span> 4K/2K 超清无水印
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                  <span className="text-green-400">✓</span> 商用授权许可
+                  <span className="text-green-400">✓</span> 20组精选视频素材
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                  <span className="text-green-400">✓</span> 网盘高速下载
+                  <span className="text-green-400">✓</span> 夸克网盘一键保存
                 </div>
               </div>
               
               <div className="mt-6 space-y-3">
                 <button
                   onClick={handlePremiumDownload}
-                  className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all"
+                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all"
                 >
-                  ❤️ 用爱发电解锁
+                  获取全部 4K 素材
                 </button>
                 
-                <button
-                  onClick={() => window.open(video.downloadUrl, '_blank')}
-                  className="w-full py-3 bg-gray-800 text-gray-300 font-medium rounded-lg hover:bg-gray-700 transition-all"
+                <a 
+                  href={afdLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-center font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all"
                 >
-                  查看免费预览版
-                </button>
+                  ❤️ 用爱发电支持我们
+                </a>
               </div>
             </div>
           </div>
