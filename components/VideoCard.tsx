@@ -32,7 +32,7 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
           <div 
             className="absolute inset-0 group-hover:scale-105 transition-transform duration-500"
             style={{
-              backgroundImage: video.cover ? `url(${video.cover})` : 'linear-gradient(to bottom right, rgba(88, 28, 135, 0.3), rgba(30, 58, 138, 0.3))',
+              backgroundImage: video.cover ? `url(/covers/${video.cover})` : 'linear-gradient(to bottom right, rgba(88, 28, 135, 0.3), rgba(30, 58, 138, 0.3))',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
