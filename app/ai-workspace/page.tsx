@@ -1,4 +1,4 @@
-export const revalidate = 0;
+// 完全静态页面，无需 revalidate
 
 const WORKSPACE_URL = 'https://concrete-stem-aca.notion.site/Nebula-AI-340b63a83c7c81baa595caac1107d684';
 const AFD_LINK = 'https://afdian.com/a/nebula-assets';
