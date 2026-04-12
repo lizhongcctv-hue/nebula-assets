@@ -22,7 +22,7 @@ const NOTION_TOKEN = process.env.NOTION_TOKEN || 'FALLBACK_TOKEN';
 const DATABASE_ID = process.env.NOTION_DATABASE_ID || 'FALLBACK_DB';
 
 const COVER_MAP: Record<string, string> = {
-  '332b63a8-3c7c-80b2-9202-da6da989aeb4': 'face-closeup.jpg',
+  '331b63a8-3c7c-80b2-9202-da6da989aeb4': 'face-closeup.jpg', // AI人物
   '332b63a8-3c7c-8001-8477-ef6453bb9abd': 'pink-flowers.jpg',
   '332b63a8-3c7c-800f-8561-f5f21887e531': 'yellow_tree.jpg',
   '332b63a8-3c7c-8014-9e9a-e1023703401f': 'pexels.jpg',
@@ -46,7 +46,7 @@ const COVER_MAP: Record<string, string> = {
 
 // Fallback data (used when Notion API is unavailable)
 export const FALLBACK_ASSETS: Asset[] = [
-  { id: '332b63a8-3c7c-80b2-9202-da6da989aeb4', name: 'AI人物', category: 'AI人物', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/portrait/', isPremium: true, cover: 'face-closeup.jpg', tags: ['AI', '人像'], description: 'AI生成的高清人像' },
+  { id: '331b63a8-3c7c-80b2-9202-da6da989aeb4', name: '🏯 AI人物 AICharacters', category: '古风意境', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/portrait/', isPremium: true, cover: 'face-closeup.jpg', tags: ['AI', '人像'], description: 'AI生成的高清人像' },
   { id: '332b63a8-3c7c-8001-8477-ef6453bb9abd', name: '粉色花丛', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/pink-flowers/', isPremium: true, cover: 'pink-flowers.jpg', tags: ['粉色', '花卉'], description: '唯美粉色花丛视频' },
   { id: '332b63a8-3c7c-800f-8561-f5f21887e531', name: '樱花树下', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/cherry-blossom/', isPremium: true, cover: 'yellow_tree.jpg', tags: ['樱花', '树木'], description: '盛开的樱花树下' },
   { id: '332b63a8-3c7c-8014-9e9a-e1023703401f', name: 'Pexels 素材导航', category: '素材导航', resolution: '4K', downloadUrl: 'https://www.pexels.com/zh-cn/video/', isPremium: false, cover: 'pexels.jpg', tags: ['导航', 'Pexels'], description: '免费高清视频素材库' },
