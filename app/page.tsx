@@ -1,8 +1,6 @@
 import { getVideoAssets, getCategories } from '@/lib/notion';
 import VideoCard from '@/components/VideoCard';
 
-export const revalidate = 60;
-
 export default async function Home() {
   const videos = await getVideoAssets();
   const categories = await getCategories();
@@ -13,16 +11,11 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-      
-      {/* 顶部留白 - 让 header 不紧贴屏幕顶部 */}
       <div style={{ height: '24px' }} />
-      
-      {/* Header */}
       <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* 简洁 Logo：渐变 N 字母 */}
-            <div 
+            <div
               className="w-9 h-9 rounded-lg flex items-center justify-center font-black text-lg"
               style={{
                 background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)',
@@ -32,8 +25,7 @@ export default async function Home() {
               N
             </div>
             <div>
-              {/* 艺术字标题 */}
-              <h1 
+              <h1
                 className="text-xl font-black tracking-tight"
                 style={{
                   background: 'linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #60a5fa 100%)',
@@ -48,19 +40,27 @@ export default async function Home() {
               <p className="text-xs text-gray-400 mt-0.5">免费4K影视素材库</p>
             </div>
           </div>
-          
-          <a 
-            href={afdLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-medium rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all flex items-center gap-2"
-          >
-            <span>❤️</span> 用爱发电
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://nebula-assets.vercel.app/ai-workspace"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-300 border border-gray-700 rounded-lg hover:border-purple-500 hover:text-purple-300 transition-all"
+            >
+              <span>🤖</span> AI工作台
+            </a>
+            <a
+              href={afdLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-medium rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all flex items-center gap-2"
+            >
+              <span>❤️</span> 用爱发电
+            </a>
+          </div>
         </div>
       </header>
 
-      {/* Hero */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
@@ -70,8 +70,6 @@ export default async function Home() {
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
             从海量素材中筛选出最美的 {videos.length} 组视频，精心分类，一键获取。
           </p>
-          
-          {/* Stats */}
           <div className="flex justify-center gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-white">{videos.length}</div>
@@ -93,7 +91,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* VIP Download Banner */}
       <section className="px-4 sm:px-6 lg:px-8 pb-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-purple-500/20 border border-amber-500/30 rounded-2xl p-6 sm:p-8">
@@ -110,7 +107,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="flex gap-3">
-                <a 
+                <a
                   href="https://pan.quark.cn/s/dd48a1e66776"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -121,7 +118,7 @@ export default async function Home() {
                   </svg>
                   免费下载
                 </a>
-                <a 
+                <a
                   href={afdLink}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -135,7 +132,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Category Filter */}
       <section className="px-4 sm:px-6 lg:px-8 pb-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 justify-center">
@@ -143,7 +139,7 @@ export default async function Home() {
               全部
             </button>
             {categories.map((cat) => (
-              <button 
+              <button
                 key={cat}
                 className="px-4 py-2 bg-gray-800 text-gray-300 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors"
               >
@@ -154,7 +150,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Video Grid */}
       <section className="px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -165,16 +160,14 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t border-gray-800/50 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
-          {/* 显眼的"已入驻爱发电"标识 */}
           <div className="mb-6">
             <a
               href={afdLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-full hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-amber-500/30"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-full hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg"
               style={{ boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' }}
             >
               <span>❤️</span>
