@@ -93,6 +93,48 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* VIP Download Banner */}
+      <section className="px-4 sm:px-6 lg:px-8 pb-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-purple-500/20 border border-amber-500/30 rounded-2xl p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-center sm:text-left">
+                <h3 className="text-xl font-bold text-white mb-2">
+                  <span className="text-amber-400">VIP</span> 整理包下载
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  20组精选素材索引 + 剪辑模板 + 使用指南 + 独家AI素材
+                </p>
+                <p className="text-gray-500 text-xs mt-1">
+                  不是卖素材，是卖整理好的时间和教程
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <a 
+                  href="https://pan.quark.cn/s/dd48a1e66776"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-medium rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  免费下载
+                </a>
+                <a 
+                  href={afdLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-medium rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all flex items-center gap-2"
+                >
+                  <span>❤️</span> 支持作者
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Category Filter */}
       <section className="px-4 sm:px-6 lg:px-8 pb-8">
         <div className="max-w-7xl mx-auto">
@@ -126,6 +168,20 @@ export default async function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-800/50 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
+          {/* 显眼的"已入驻爱发电"标识 */}
+          <div className="mb-6">
+            <a
+              href={afdLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-full hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-amber-500/30"
+              style={{ boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' }}
+            >
+              <span>❤️</span>
+              <span>已入驻爱发电</span>
+              <span className="text-amber-100 text-sm">afdian.com/a/nebula-assets</span>
+            </a>
+          </div>
           <p className="text-gray-500 text-sm">
             © 2026 Nebula Assets. 部分素材来源于 Pexels 授权协议，经过 Nebula Assets 艺术加工处理。
           </p>
