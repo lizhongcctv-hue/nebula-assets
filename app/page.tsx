@@ -45,7 +45,7 @@ export default async function Home() {
               href="https://nebula-assets.vercel.app/ai-workspace"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-300 border border-gray-700 rounded-lg hover:border-purple-500 hover:text-purple-300 transition-all"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-purple-300 border border-purple-500/50 bg-purple-500/10 rounded-lg hover:border-purple-400 hover:bg-purple-500/20 hover:text-purple-200 transition-all"
             >
               <span>🤖</span> AI工作台
             </a>
