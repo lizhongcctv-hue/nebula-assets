@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { VideoAsset } from '@/lib/notion';
 
 const QUARK_LINK = 'https://pan.quark.cn/s/e0ff7217a068';
@@ -31,14 +32,23 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
       <div className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20">
         {/* Cover Image */}
         <div className="relative aspect-video overflow-hidden">
-          <div 
-            className="absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-            style={{
-              backgroundImage: video.cover ? `url(/covers/${video.cover})` : 'linear-gradient(to bottom right, rgba(88, 28, 135, 0.3), rgba(30, 58, 138, 0.3))',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
+          {video.cover ? (
+            <Image
+              src={`/covers/${video.cover}`}
+              alt={video.name}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              quality={80}
+            />
+          ) : (
+            <div 
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'linear-gradient(to bottom right, rgba(88, 28, 135, 0.3), rgba(30, 58, 138, 0.3))',
+              }}
+            />
+          )}
           
           {/* Resolution Badge */}
           <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-xs font-medium text-white">
