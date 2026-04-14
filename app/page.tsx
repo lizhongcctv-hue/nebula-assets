@@ -35,9 +35,9 @@ export default async function Home() {
                   fontFamily: 'system-ui, -apple-system, sans-serif',
                 }}
               >
-                Nebula Assets
+                Nebula AI Lab
               </h1>
-              <p className="text-xs text-gray-400 mt-0.5">免费4K影视素材库</p>
+              <p className="text-xs text-gray-400 mt-0.5">治愈系互动素材库</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -65,10 +65,10 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             发现高质量
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> 4K 影视素材</span>
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> 治愈系素材</span>
           </h2>
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            从海量素材中筛选出最美的 {videos.length} 组视频，精心分类，一键获取。
+            精选 {videos.length} 组4K治愈系视频，可用于游戏过场、剧本杀氛围、动态壁纸，支持商用授权。
           </p>
           <div className="flex justify-center gap-8">
             <div className="text-center">
@@ -97,13 +97,13 @@ export default async function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-center sm:text-left">
                 <h3 className="text-xl font-bold text-white mb-2">
-                  <span className="text-amber-400">VIP</span> 整理包下载
+                  <span className="text-amber-400">VIP</span> 开发者授权包
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  20组精选素材索引 + 剪辑模板 + 使用指南 + 独家AI素材
+                  全部素材商用授权 + 4K源文件 + 永久更新
                 </p>
                 <p className="text-gray-500 text-xs mt-1">
-                  不是卖素材，是卖整理好的时间和教程
+                  适合游戏开发者、剧本杀店、内容创作者
                 </p>
               </div>
               <div className="flex gap-3">
@@ -176,7 +176,7 @@ export default async function Home() {
             </a>
           </div>
           <p className="text-gray-500 text-sm">
-            © 2026 Nebula Assets. 部分素材来源于 Pexels 授权协议，经过 Nebula Assets 艺术加工处理。
+            © 2026 Nebula AI Lab. 部分素材来源于 Pexels 授权协议，经过 Nebula AI Lab 艺术加工处理。
           </p>
           <p className="text-gray-500 text-sm">
             唯一官方主页：
