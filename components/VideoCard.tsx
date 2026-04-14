@@ -12,6 +12,7 @@ interface VideoCardProps {
 }
 
 export default function VideoCard({ video, afdLink }: VideoCardProps) {
+  const [showPreview, setShowPreview] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleDownload = () => {
@@ -62,16 +63,28 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
             </div>
           )}
           
-          {/* Play Button Overlay */}
+          {/* Preview + Download Buttons */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button 
-              onClick={handleDownload}
-              className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-            >
-              <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
+            <div className="flex gap-3">
+              <button 
+                onClick={() => setShowPreview(true)}
+                className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                title="预览"
+              >
+                <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+              <button 
+                onClick={handleDownload}
+                className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                title="下载"
+              >
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
         
@@ -104,6 +117,84 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
           </button>
         </div>
       </div>
+
+      {/* Video Preview Modal */}
+      {showPreview && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setShowPreview(false)}
+        >
+          <div 
+            className="bg-gray-900 border border-gray-700 rounded-2xl max-w-4xl w-full p-6 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => setShowPreview(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl z-10"
+            >
+              ✕
+            </button>
+
+            {/* Preview area */}
+            <div className="relative aspect-video mb-4 rounded-lg overflow-hidden bg-black">
+              {video.cover ? (
+                <Image
+                  src={`/covers/${video.cover}`}
+                  alt={video.name}
+                  fill
+                  className="rounded-lg"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-blue-900/50" />
+              )}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+              {/* Video info overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="flex gap-2">
+                  <span className="px-2 py-1 bg-black/50 backdrop-blur-sm rounded text-xs text-white">{video.category}</span>
+                  <span className="px-2 py-1 bg-black/50 backdrop-blur-sm rounded text-xs text-white">{video.resolution}</span>
+                  {video.isPremium && (
+                    <span className="px-2 py-1 bg-amber-500/80 backdrop-blur-sm rounded text-xs text-white font-bold">👑 VIP</span>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Info & actions */}
+            <h3 className="text-xl font-bold text-white mb-2">{video.name}</h3>
+            <p className="text-gray-400 mb-4">{video.description || '暂无描述'}</p>
+            
+            {video.tags.length > 0 && (
+              <div className="flex flex-wrap gap-1 mb-4">
+                {video.tags.map((tag) => (
+                  <span key={tag} className="px-2 py-0.5 bg-gray-800 rounded text-xs text-gray-400">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div className="flex justify-end">
+              <button
+                onClick={() => { setShowPreview(false); handleDownload(); }}
+                className={`px-6 py-2.5 rounded-lg font-medium text-sm transition-all ${
+                  video.isPremium
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600'
+                    : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
+                }`}
+              >
+                {video.isPremium ? '👑 获取 VIP 素材' : '⬇️ 免费下载'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Premium Modal */}
       {showModal && (
