@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Mobile: horizontal scroll for category pills */
+@media (max-width: 640px) {
+  .category-scroll {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #374151 #1f2937;
+  }
+
+  .category-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .category-scroll::-webkit-scrollbar-track {
+    background: #1f2937;
+    border-radius: 4px;
+  }
+
+  .category-scroll::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+  }
+
+  /* Hide scrollbar on iOS */
+  .category-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .category-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

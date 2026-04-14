@@ -48,7 +48,7 @@ export default function VideoGallery({ videos, categories, afdLink }: VideoGalle
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap gap-2 justify-center category-scroll">
             <button
               onClick={() => setActive('全部')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
