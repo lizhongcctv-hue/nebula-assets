@@ -1,5 +1,5 @@
 import { getVideoAssets, getCategories } from '@/lib/notion';
-import VideoCard from '@/components/VideoCard';
+import VideoGallery from '@/components/VideoGallery';
 
 export default async function Home() {
   const videos = await getVideoAssets();
@@ -132,33 +132,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2 justify-center">
-            <button className="px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-medium">
-              全部
-            </button>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className="px-4 py-2 bg-gray-800 text-gray-300 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors"
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {videos.map((video) => (
-              <VideoCard key={video.id} video={video} afdLink={afdLink} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <VideoGallery videos={videos} categories={categories} afdLink={afdLink} />
 
       <footer className="border-t border-gray-800/50 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
