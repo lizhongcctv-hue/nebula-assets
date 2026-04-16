@@ -1,6 +1,8 @@
 import { getVideoAssets, getCategories } from '@/lib/notion';
 import VideoGallery from '@/components/VideoGallery';
 
+// v2.1 - 人物素材更新
+
 export default async function Home() {
   const videos = await getVideoAssets();
   const categories = await getCategories();
