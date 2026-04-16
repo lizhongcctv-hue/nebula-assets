@@ -49,8 +49,13 @@ export const FALLBACK_ASSETS: Asset[] = [
   { id: '331b63a8-3c7c-80b2-9202-da6da989aeb4', name: '🏯 AI人物 AICharacters', category: '古风意境', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/portrait/', isPremium: true, cover: 'face-closeup.jpg', tags: ['AI', '人像'], description: 'AI生成的高清人像' },
   { id: '332b63a8-3c7c-8001-8477-ef6453bb9abd', name: '粉色花丛', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/pink-flowers/', isPremium: true, cover: 'pink-flowers.jpg', tags: ['粉色', '花卉'], description: '唯美粉色花丛视频' },
   { id: '332b63a8-3c7c-800f-8561-f5f21887e531', name: '樱花树下', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/cherry-blossom/', isPremium: true, cover: 'yellow_tree.jpg', tags: ['樱花', '树木'], description: '盛开的樱花树下' },
-  { id: '332b63a8-3c7c-8014-9e9a-e1023703401f', name: 'Pexels 素材导航', category: '素材导航', resolution: '4K', downloadUrl: 'https://www.pexels.com/zh-cn/video/', isPremium: false, cover: 'pexels.jpg', tags: ['导航', 'Pexels'], description: '免费高清视频素材库' },
-  { id: '332b63a8-3c7c-8032-981e-ca6817208904', name: 'Mixkit 素材导航', category: '素材导航', resolution: '4K', downloadUrl: 'https://mixkit.co/free-stock-video/', isPremium: false, cover: 'mixkit.jpg', tags: ['导航', 'Mixkit'], description: '免费创意视频素材' },
+  // 人物素材 - 替换原来的素材导航
+  { id: '人物001', name: '人物视频1', category: '人物素材', resolution: '4K', downloadUrl: 'https://pan.quark.cn/s/xxx', isPremium: true, cover: 'face-closeup.jpg', tags: ['人物', 'Pexels'], description: 'Pexels高清人物视频' },
+  { id: '人物002', name: '人物视频2', category: '人物素材', resolution: '4K', downloadUrl: 'https://pan.quark.cn/s/xxx', isPremium: true, cover: 'face-closeup.jpg', tags: ['人物', 'Pexels'], description: 'Pexels高清人物视频' },
+  { id: '人物003', name: '人物视频3', category: '人物素材', resolution: '4K', downloadUrl: 'https://pan.quark.cn/s/xxx', isPremium: true, cover: 'face-closeup.jpg', tags: ['人物', 'Pexels'], description: 'Pexels高清人物视频' },
+  { id: '人物004', name: '人物视频4', category: '人物素材', resolution: '4K', downloadUrl: 'https://pan.quark.cn/s/xxx', isPremium: true, cover: 'face-closeup.jpg', tags: ['人物', 'Pexels'], description: 'Pexels高清人物视频' },
+  { id: '人物005', name: '人物视频5', category: '人物素材', resolution: '4K', downloadUrl: 'https://pan.quark.cn/s/xxx', isPremium: true, cover: 'face-closeup.jpg', tags: ['人物', 'Pexels'], description: 'Pexels高清人物视频' },
+  { id: '人物006', name: '人物视频6', category: '人物素材', resolution: '4K', downloadUrl: 'https://pan.quark.cn/s/xxx', isPremium: true, cover: 'face-closeup.jpg', tags: ['人物', 'Pexels'], description: 'Pexels高清人物视频' },
   { id: '332b63a8-3c7c-8048-b35c-df90c29a083c', name: '森林瀑布', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/waterfall/', isPremium: true, cover: 'waterfall.jpg', tags: ['自然', '瀑布'], description: '森林中的美丽瀑布' },
   { id: '332b63a8-3c7c-804b-bffa-ce55c08e034c', name: '海鸥飞越泻湖', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/seagulls/', isPremium: true, cover: 'seagulls.jpg', tags: ['海鸥', '泻湖'], description: '海鸥飞越美丽泻湖' },
   { id: '332b63a8-3c7c-8050-83fd-f2b0f0026af2', name: '航拍山丘码头', category: '航拍', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/aerial-landscape/', isPremium: true, cover: 'drone_hills.jpg', tags: ['航拍', '山丘'], description: '无人机航拍山丘与码头' },
@@ -66,8 +71,6 @@ export const FALLBACK_ASSETS: Asset[] = [
   { id: '332b63a8-3c7c-81e5-bd54-e83cb1232855', name: '海景日落', category: '自然风光', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/sunset-sea/', isPremium: true, cover: 'sunset_sea.jpg', tags: ['日落', '海景'], description: '海边绝美日落' },
   { id: '332b63a8-3c7c-81e9-9181-d01b8b23c963', name: '橙蓝抽象', category: '特效背景', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/abstract-gradient/', isPremium: true, cover: 'orange_blue.jpg', tags: ['抽象', '特效'], description: '橙蓝渐变抽象背景' },
   { id: '332b63a8-3c7c-81ea-9c26-ea9cdcf405ce', name: '黑白散景', category: '特效背景', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/bokeh-lights/', isPremium: true, cover: 'bokeh.jpg', tags: ['散景', '黑白'], description: '黑白散景虚焦背景' },
-  // 人物素材分类（占位）
-  { id: '人物001', name: 'AI人物', category: '人物素材', resolution: '4K', downloadUrl: '', isPremium: true, cover: 'face-closeup.jpg', tags: ['AI', '人像'], description: 'AI生成的高清人像' },
 ];
 
 export async function fetchNotionAssets(): Promise<Asset[]> {
