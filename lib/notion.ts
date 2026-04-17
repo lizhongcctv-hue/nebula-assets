@@ -1,6 +1,6 @@
-// COMMIT_HASH: rebuilt_0417_newdb_v2
+// COMMIT_HASH: rolled_back_0417
 // NebulaAssets Notion API + Fallback Data
-// 新数据库 aaa6b4febcb9460dab6600d0a5ab2433 (2026-04-17)
+// 原数据库 5496641573784465b9b5b4d0be9497b8 (API受限，使用FALLBACK)
 
 // Asset type
 export interface Asset {
