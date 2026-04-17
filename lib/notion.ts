@@ -19,7 +19,7 @@ export interface Asset {
 export type VideoAsset = Asset;
 
 const NOTION_TOKEN = process.env.NOTION_TOKEN || 'FALLBACK_TOKEN';
-const DATABASE_ID = process.env.NOTION_DATABASE_ID || 'FALLBACK_DB';
+const DATABASE_ID = process.env.NOTION_DATABASE_ID || 'aaa6b4febcb9460dab6600d0a5ab2433';
 
 // COVER_MAP: 新数据库页面ID -> 本地封面图
 // 获取方式: node list-pages.js
@@ -48,7 +48,7 @@ const COVER_MAP: Record<string, string> = {
   // 城市建筑
   '345b63a8-3c7c-8156-b125-c46c36639112': 'fireworks_beach.jpg', // 🎆 海滩烟花 Fireworks on Beach
   '345b63a8-3c7c-8124-b8cf-f214903ac7e6': 'tokyo.jpg',          // 🌧️ 雨夜时代广场 Times Square Rainy Night
-  '345b63a8-3c7c-81b1-b60e-f15175e4b5f7': 'tokyo.jpg',        // 🌃 东京步行街 Pedestrian Walk in Tokyo
+  '345b63a8-3c7c-81b1-b60e-f15175e4b5f7': 'times_square.jpg',        // 🌃 东京步行街 Pedestrian Walk in Tokyo
   // 特效背景
   '345b63a8-3c7c-8153-aae8-fb9c535c81fe': 'water_reflect.jpg',  // 💫 迷人水面倒影 Atmospheric Water Reflection
   '345b63a8-3c7c-8149-8fab-ce29259eaa6b': 'orange_blue.jpg',     // 🔵 橙蓝抽象视觉 Abstract Orange Blue Effect
