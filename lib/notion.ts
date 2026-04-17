@@ -48,7 +48,7 @@ const COVER_MAP: Record<string, string> = {
   // 城市建筑
   '345b63a8-3c7c-8156-b125-c46c36639112': 'fireworks_beach.jpg', // 🎆 海滩烟花 Fireworks on Beach
   '345b63a8-3c7c-8124-b8cf-f214903ac7e6': 'tokyo.jpg',          // 🌧️ 雨夜时代广场 Times Square Rainy Night
-  '345b63a8-3c7c-81b1-b60e-f15175e4b5f7': 'rooftop.jpg',        // 🌃 东京步行街 Pedestrian Walk in Tokyo
+  '345b63a8-3c7c-81b1-b60e-f15175e4b5f7': 'tokyo.jpg',        // 🌃 东京步行街 Pedestrian Walk in Tokyo
   // 特效背景
   '345b63a8-3c7c-8153-aae8-fb9c535c81fe': 'water_reflect.jpg',  // 💫 迷人水面倒影 Atmospheric Water Reflection
   '345b63a8-3c7c-8149-8fab-ce29259eaa6b': 'orange_blue.jpg',     // 🔵 橙蓝抽象视觉 Abstract Orange Blue Effect
@@ -87,7 +87,7 @@ export const FALLBACK_ASSETS: Asset[] = [
   { id: '332b63a8-3c7c-81e5-bd54-e83cb1232855', name: '🌅 海景日落 Stunning Sunset', category: '海景沙滩', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/sunset-sea/', isPremium: true, cover: 'sunset_sea.jpg', tags: ['日落', '海景'], description: '海边绝美日落' },
   { id: '332b63a8-3c7c-8107-8c47-d6d65cd10d01', name: '🎆 海滩烟花绽放 Fireworks on Beach', category: '城市建筑', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/fireworks/', isPremium: true, cover: 'fireworks_beach.jpg', tags: ['烟花', '海滩'], description: '海滩上绽放的烟花' },
   { id: '332b63a8-3c7c-8163-ab7f-e0053c67900a', name: '🌧️ 雨夜时代广场 Times Square Rainy Night', category: '城市建筑', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/tokyo-night/', isPremium: true, cover: 'tokyo.jpg', tags: ['城市', '东京'], description: '东京繁华街道雨中行' },
-  { id: '332b63a8-3c7c-8169-933d-ee0bf041ecfe', name: '🌃 东京步行街 Pedestrian Walk in Tokyo', category: '城市建筑', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/city-sunset/', isPremium: true, cover: 'rooftop.jpg', tags: ['日落', '天台'], description: '天台视角的城市日落' },
+  { id: '332b63a8-3c7c-8169-933d-ee0bf041ecfe', name: '🌃 东京步行街 Pedestrian Walk in Tokyo', category: '城市建筑', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/city-sunset/', isPremium: true, cover: 'tokyo.jpg', tags: ['城市', '东京'], description: '东京繁华街道雨中行' },
   { id: '332b63a8-3c7c-8165-adb0-ddf4adb1693b', name: '🌅 天台日落 Woman Sunset on Rooftop', category: 'AI人物', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/city-sunset/', isPremium: true, cover: 'rooftop.jpg', tags: ['AI', '日落'], description: 'AI生成的天台日落人像' },
   { id: '332b63a8-3c7c-81bc-9e3f-ee5bfca8f92c', name: '💫 迷人水面倒影 Atmospheric Water Reflection', category: '特效背景', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/water-reflection/', isPremium: true, cover: 'water_reflect.jpg', tags: ['倒影', '水面'], description: '唯美水面倒影特效' },
   { id: '332b63a8-3c7c-81d4-a8a7-f67fd24c6a95', name: '📹 视频素材 Watermarked Preview', category: '特效背景', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/bokeh/', isPremium: true, cover: 'camera_hands.jpg', tags: ['视频', '素材'], description: '专业视频素材展示' },
