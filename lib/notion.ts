@@ -19,7 +19,7 @@ export interface Asset {
 export type VideoAsset = Asset;
 
 const NOTION_TOKEN = process.env.NOTION_TOKEN || 'FALLBACK_TOKEN';
-const DATABASE_ID = process.env.NOTION_DATABASE_ID || 'aaa6b4febcb9460dab6600d0a5ab2433';
+const DATABASE_ID = process.env.NOTION_DATABASE_ID || 'aaa6b4fe-bcb9-460d-ab66-00d0a5ab2433';
 
 // COVER_MAP: 新数据库页面ID -> 本地封面图
 // 获取方式: node list-pages.js
