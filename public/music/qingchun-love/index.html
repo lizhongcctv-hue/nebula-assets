@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青春之恋 - 传澈</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .player {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .cover {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    margin-bottom: 28px;
+  }
+  .title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .artist { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+  audio {
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 24px;
+  }
+  .lyrics-box {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 380px;
+  }
+  .lyric-line {
+    padding: 5px 10px;
+    color: rgba(255,255,255,0.35);
+    font-size: 15px;
+    line-height: 1.6;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .lyric-line.active { color: #fff; background: rgba(147,112,219,0.25); font-weight: 600; }
+  .section-tag {
+    color: rgba(147,112,219,0.7);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 10px 4px;
+    display: block;
+  }
+  .credit { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+<div class="player">
+  <img class="cover" src="cover.jpg" alt="封面">
+  <div class="title">青春之恋</div>
+  <div class="artist">传澈</div>
+  <audio id="audio" controls>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+  <div class="lyrics-box" id="lyrics"></div>
+  <div class="credit">AI创作 · 青春甜美风格 · BPM 85</div>
+</div>
+
+<script>
+const lyrics = [
+  { time: 0,   text: "",        type: "section", label: "Intro" },
+  { time: 3,   text: "阳光洒进教室的窗台" },
+  { time: 9,   text: "粉笔灰在光里轻轻摇摆" },
+  { time: 15,  text: "你低头算题的样子真帅" },
+  { time: 21,  text: "我偷偷看你傻傻发呆" },
+  { time: 27,  text: "",        type: "section", label: "Pre Chorus" },
+  { time: 29,  text: "下课铃声突然响起来" },
+  { time: 35,  text: "勇气涨满在我胸怀" },
+  { time: 41,  text: "想说的话卡在嗓子眼" },
+  { time: 47,  text: "脸红得像熟透的苹果" },
+  { time: 53,  text: "",        type: "section", label: "Chorus" },
+  { time: 55,  text: "青春是一场甜蜜的风" },
+  { time: 61,  text: "吹过校园每一个角落" },
+  { time: 67,  text: "你的笑容像草莓牛奶" },
+  { time: 73,  text: "融化我心里所有的落寞" },
+  { time: 79,  text: "我喜欢你呀说不出口" },
+  { time: 85,  text: "就让这首歌替我开口" },
+  { time: 94,  text: "",        type: "section", label: "Verse 2" },
+  { time: 96,  text: "放学后我们并肩走在" },
+  { time: 102, text: "那条铺满落叶的长街" },
+  { time: 108, text: "你的肩膀轻轻碰了碰" },
+  { time: 114, text: "我的心跳漏了一拍" },
+  { time: 120, text: "",        type: "section", label: "Pre Chorus" },
+  { time: 122, text: "自行车铃声叮叮当当" },
+  { time: 128, text: "晚霞把天空染成粉红" },
+  { time: 134, text: "想牵你的手又缩回来" },
+  { time: 140, text: "怕被你发现我的脸红" },
+  { time: 146, text: "",        type: "section", label: "Chorus" },
+  { time: 148, text: "青春是一场甜蜜的风" },
+  { time: 154, text: "吹过校园每一个角落" },
+  { time: 160, text: "你的笑容像草莓牛奶" },
+  { time: 166, text: "融化我心里所有的落寞" },
+  { time: 172, text: "我喜欢你呀说不出口" },
+  { time: 178, text: "这首歌会替我开口" },
+];
+
+const lyricsBox = document.getElementById("lyrics");
+const audio = document.getElementById("audio");
+
+lyrics.forEach(item => {
+  const el = document.createElement("div");
+  if (item.type === "section") {
+    el.className = "section-tag";
+    el.textContent = item.label;
+  } else {
+    el.className = "lyric-line";
+    el.textContent = item.text;
+    el.dataset.time = item.time;
+  }
+  lyricsBox.appendChild(el);
+});
+
+audio.addEventListener("timeupdate", () => {
+  const t = audio.currentTime;
+  lyricsBox.querySelectorAll(".lyric-line").forEach(l => l.classList.remove("active"));
+  let prev = null;
+  lyrics.filter(l => l.type !== "section").forEach(item => {
+    if (item.time <= t) prev = item;
+  });
+  if (prev) {
+    const el = lyricsBox.querySelector(`[data-time="${prev.time}"]`);
+    if (el) {
+      el.classList.add("active");
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+});
+</script>
+</body>
+</html>
