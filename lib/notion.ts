@@ -62,9 +62,6 @@ export const FALLBACK_ASSETS: Asset[] = [
   // 海景沙滩 ×2
   { id: 's001', name: '海鸥飞越泻湖', category: '海景沙滩', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/seagulls/', isPremium: true, cover: 'seagulls.jpg', tags: ['海鸥', '泻湖'], description: '海鸥飞越美丽泻湖' },
   { id: 's002', name: '森林瀑布', category: '海景沙滩', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/waterfall/', isPremium: true, cover: 'waterfall.jpg', tags: ['自然', '瀑布'], description: '森林中的美丽瀑布' },
-  // 花卉微距 ×2
-  { id: 'm001', name: '粉紫光影', category: '花卉微距', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/abstract-light/', isPremium: true, cover: 'fireworks.jpg', tags: ['花卉', '微距'], description: '梦幻粉紫色光影背景' },
-  { id: 'm002', name: '天台日落', category: '花卉微距', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/city-sunset/', isPremium: true, cover: 'sunset_sea.jpg', tags: ['花卉', '微距'], description: '天台视角的城市日落' },
   // AI人物 ×1
   { id: 'a001', name: '🏯 AI人物', category: 'AI人物', resolution: '4K', downloadUrl: 'https://www.pexels.com/search/videos/portrait/', isPremium: true, cover: 'bokeh.jpg', tags: ['AI', '人像'], description: 'AI生成的高清人像' },
   // 古风意境 ×1
