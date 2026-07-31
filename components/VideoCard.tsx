@@ -217,7 +217,7 @@ export default function VideoCard({ video, afdLink }: VideoCardProps) {
               
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                  <span className="text-green-400">✓</span> 20组精选 4K/2K 视频
+                  <span className="text-green-400">✓</span> 16组精选 4K 视频
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-green-400">✓</span> 已分类整理，找素材不费时
