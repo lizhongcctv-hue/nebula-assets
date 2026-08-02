@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洪流滚滚 - 传澈</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2b0a0a 0%, #5a1010 50%, #1a1a2e 100%);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .player {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .cover {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    margin-bottom: 28px;
+  }
+  .title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .artist { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+  audio {
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 24px;
+  }
+  .lyrics-box {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 380px;
+  }
+  .lyric-line {
+    padding: 5px 10px;
+    color: rgba(255,255,255,0.35);
+    font-size: 15px;
+    line-height: 1.6;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .lyric-line.active { color: #fff; background: rgba(200,60,40,0.35); font-weight: 600; }
+  .section-tag {
+    color: rgba(220,120,80,0.8);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 10px 4px;
+    display: block;
+  }
+  .credit { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+<div class="player">
+  <img class="cover" src="cover.jpg" alt="封面">
+  <div class="title">洪流滚滚</div>
+  <div class="artist">传澈</div>
+  <audio id="audio" controls>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+  <div class="lyrics-box" id="lyrics"></div>
+  <div class="credit">AI创作 · 史诗革命颂歌 · 男声领唱+副歌合唱</div>
+</div>
+
+<script>
+const lyrics = [
+  { time: 0.5,  text: "洪流滚滚，" },
+  { time: 2.9,  text: "涤荡尽，" },
+  { time: 5.3,  text: "百年耻辱雪恨。" },
+  { time: 7.7,  text: "红船扬波初启迪，" },
+  { time: 10.1, text: "而今翻天覆地。" },
+  { time: 12.5, text: "秋收起义，" },
+  { time: 14.9, text: "南昌举枪，" },
+  { time: 17.3, text: "会师井冈山。" },
+  { time: 19.7, text: "长征路险，" },
+  { time: 22.1, text: "英雄血洒疆场。" },
+  { time: 24.5, text: "延安灯火日夜，" },
+  { time: 26.9, text: "挥毫绘就，" },
+  { time: 29.3, text: "民族复兴图。" },
+  { time: 31.7, text: "江山一统红旗展，" },
+  { time: 34.1, text: "紧踏时代节拍。" },
+  { time: 36.5, text: "破茧化蝶，" },
+  { time: 38.9, text: "初心不变，" },
+  { time: 41.3, text: "挥剑向长天。" },
+  { time: 43.7, text: "屹立昆仑，" },
+  { time: 46.1, text: "曙光在眼前！" },
+  { time: 48.5, text: "洪流滚滚，" },
+  { time: 50.9, text: "涤荡尽，" },
+  { time: 53.3, text: "百年耻辱雪恨。" },
+  { time: 55.7, text: "红船扬波初启迪，" },
+  { time: 58.1, text: "而今翻天覆地。" },
+  { time: 60.5, text: "秋收起义，" },
+  { time: 62.9, text: "南昌举枪，" },
+  { time: 65.3, text: "会师井冈山。" },
+  { time: 67.7, text: "长征路险，" },
+  { time: 70.1, text: "英雄血洒疆场。" },
+  { time: 72.5, text: "延安灯火日夜，" },
+  { time: 74.9, text: "挥毫绘就，" },
+  { time: 77.3, text: "民族复兴图。" },
+  { time: 79.7, text: "江山一统红旗展，" },
+  { time: 82.1, text: "紧踏时代节拍。" },
+  { time: 84.5, text: "破茧化蝶，" },
+  { time: 86.9, text: "初心不变，" },
+  { time: 89.3, text: "挥剑向长天。" },
+  { time: 91.7, text: "屹立昆仑，" },
+  { time: 94.1, text: "曙光在眼前！" },
+];
+
+const lyricsBox = document.getElementById("lyrics");
+const audio = document.getElementById("audio");
+
+lyrics.forEach(item => {
+  const el = document.createElement("div");
+  el.className = "lyric-line";
+  el.textContent = item.text;
+  el.dataset.time = item.time;
+  lyricsBox.appendChild(el);
+});
+
+audio.addEventListener("timeupdate", () => {
+  const t = audio.currentTime;
+  lyricsBox.querySelectorAll(".lyric-line").forEach(l => l.classList.remove("active"));
+  let prev = null;
+  lyrics.forEach(item => {
+    if (item.time <= t) prev = item;
+  });
+  if (prev) {
+    const el = lyricsBox.querySelector(`[data-time="${prev.time}"]`);
+    if (el) {
+      el.classList.add("active");
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+});
+</script>
+</body>
+</html>
