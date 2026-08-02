@@ -2,109 +2,128 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>洪流滚滚 · 传澈</title>
+<!-- Open Graph / 微信分享卡片 -->
+<meta property="og:title" content="洪流滚滚 · 传澈">
+<meta property="og:description" content="民族史诗 AI 原创歌曲 · 男声领唱 + 古筝琵琶大鼓 · 古韵念奴娇风">
+<meta property="og:type" content="music.song">
+<meta property="og:url" content="https://nebula-assets.vercel.app/music/hongliu-gungun/">
+<meta property="og:image" content="https://nebula-assets.vercel.app/music/hongliu-gungun/cover.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="music:song" content="https://nebula-assets.vercel.app/music/hongliu-gungun/song.mp3">
+<meta property="music:musician" content="传澈">
+<meta name="weixin:title" content="洪流滚滚 · 传澈">
+<meta name="weixin:image" content="https://nebula-assets.vercel.app/music/hongliu-gungun/cover.jpg">
+<meta name="weixin:description" content="民族史诗 · 男声领唱 + 古筝琵琶大鼓">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
   body {
-    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-    background: linear-gradient(135deg, #1a0303 0%, #3a0a0a 50%, #1a0505 100%);
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #1a0303 0%, #3a0a0a 55%, #150404 100%);
     color: #f5e6c8;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 24px;
-  }
-  .player {
-    background: rgba(30, 5, 5, 0.85);
-    border: 1px solid #8a5a2a;
-    border-radius: 16px;
-    box-shadow: 0 12px 48px rgba(0,0,0,0.6), inset 0 0 60px rgba(138,90,42,0.15);
-    width: 100%;
-    max-width: 460px;
+    padding: max(28px, env(safe-area-inset-top)) 20px 16px;
     overflow: hidden;
   }
-  .cover-wrap {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    background: #000;
-    overflow: hidden;
+  .cover {
+    width: 220px; height: 220px;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,200,120,0.25);
+    margin-top: 8px;
+    animation: float 6s ease-in-out infinite;
   }
-  .cover-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  .cover-title {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 28px 20px 16px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
-    text-align: center;
-  }
-  .cover-title h1 {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: 6px;
-    color: #f2d59a;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
-  }
-  .cover-title p {
-    margin-top: 6px;
-    font-size: 14px;
-    color: #c9a36a;
-    letter-spacing: 2px;
-  }
-  .audio-box {
-    padding: 16px 20px 8px;
-  }
-  audio { width: 100%; height: 40px; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .meta { text-align: center; margin-top: 18px; }
+  .meta h1 { font-size: 24px; font-weight: 700; letter-spacing: 4px; color: #f2d59a; }
+  .meta p { margin-top: 6px; font-size: 13px; color: #c9a36a; letter-spacing: 1px; }
   .lrc {
-    max-height: 260px;
+    flex: 1;
+    width: 100%;
+    max-width: 420px;
     overflow-y: auto;
-    padding: 12px 20px 20px;
+    margin-top: 14px;
+    padding: 10px 0;
     scroll-behavior: smooth;
     text-align: center;
+    -webkit-overflow-scrolling: touch;
   }
-  .lrc::-webkit-scrollbar { width: 4px; }
-  .lrc::-webkit-scrollbar-thumb { background: #8a5a2a; border-radius: 2px; }
+  .lrc::-webkit-scrollbar { display: none; }
   .lrc-line {
-    padding: 7px 0;
-    font-size: 16px;
+    padding: 8px 12px;
+    font-size: 15px;
     line-height: 1.5;
-    color: #9c8a6a;
-    transition: all 0.35s ease;
+    color: #8f7d5e;
+    transition: all 0.3s ease;
     letter-spacing: 1px;
   }
   .lrc-line.active {
     color: #ffd97a;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
     text-shadow: 0 0 14px rgba(255,180,60,0.5);
   }
-  .credit {
-    border-top: 1px solid rgba(138,90,42,0.4);
-    padding: 12px 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #a88050;
-    letter-spacing: 1px;
+  .controls {
+    padding: 14px 24px max(20px, env(safe-area-inset-bottom));
+    background: rgba(20,3,3,0.9);
+    border-top: 1px solid rgba(138,90,42,0.35);
+  }
+  .bar {
+    height: 4px; border-radius: 2px;
+    background: rgba(255,255,255,0.15);
+    position: relative; cursor: pointer; margin-bottom: 12px;
+  }
+  .bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg,#c9a36a,#ffd97a); width: 0; }
+  .time { display: flex; justify-content: space-between; font-size: 11px; color: #a88050; margin-top: 6px; }
+  .playbtn {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffd97a, #b8862f);
+    border: none; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(255,180,60,0.4);
+    cursor: pointer;
+  }
+  .playbtn::before {
+    content: ""; width: 0; height: 0;
+    border-left: 18px solid #3a0a0a;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    margin-left: 4px;
+  }
+  .playbtn.playing::before {
+    border: none; width: 16px; height: 18px;
+    border-left: 6px solid #3a0a0a; border-right: 6px solid #3a0a0a;
+    margin-left: 0;
   }
 </style>
 </head>
 <body>
-  <div class="player">
-    <div class="cover-wrap">
-      <img src="cover.jpg" alt="洪流滚滚">
-      <div class="cover-title">
-        <h1>洪流滚滚</h1>
-        <p>民族史诗 · 男声领唱 · 传澈</p>
-      </div>
-    </div>
-    <div class="audio-box">
-      <audio id="audio" controls preload="auto" src="song.mp3"></audio>
+  <div class="stage">
+    <img class="cover" src="cover.jpg" alt="洪流滚滚">
+    <div class="meta">
+      <h1>洪流滚滚</h1>
+      <p>民族史诗 · 男声领唱 · 传澈</p>
     </div>
     <div class="lrc" id="lrc"></div>
-    <div class="credit">AI 创作 · 民族史诗风格 · 152秒</div>
   </div>
+  <div class="controls">
+    <div class="bar" id="bar"><div class="bar-fill" id="fill"></div></div>
+    <div class="time"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <button class="playbtn" id="play"></button>
+  </div>
+  <audio id="audio" preload="auto" src="song.mp3"></audio>
 
 <script>
   const lyrics = [
@@ -152,6 +171,12 @@
 
   const lrcEl = document.getElementById('lrc');
   const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('play');
+  const fill = document.getElementById('fill');
+  const bar = document.getElementById('bar');
+  const curEl = document.getElementById('cur');
+  const durEl = document.getElementById('dur');
+
   lyrics.forEach((item, i) => {
     const div = document.createElement('div');
     div.className = 'lrc-line';
@@ -160,23 +185,35 @@
     lrcEl.appendChild(div);
   });
 
+  function fmt(s){ if(!s||isNaN(s)) return '0:00'; const m=Math.floor(s/60); const ss=Math.floor(s%60); return m+':'+String(ss).padStart(2,'0'); }
+
   let current = -1;
   audio.addEventListener('timeupdate', () => {
     const t = audio.currentTime;
     let idx = -1;
-    for (let i = 0; i < lyrics.length; i++) {
-      if (t >= lyrics[i].t) idx = i; else break;
-    }
+    for (let i = 0; i < lyrics.length; i++) { if (t >= lyrics[i].t) idx = i; else break; }
     if (idx !== current && idx >= 0) {
-      if (current >= 0) {
-        const prev = document.getElementById('line-' + current);
-        if (prev) prev.classList.remove('active');
-      }
-      const cur = document.getElementById('line-' + idx);
-      cur.classList.add('active');
-      cur.scrollIntoView({ block: 'center' });
+      if (current >= 0) { const p=document.getElementById('line-'+current); if(p) p.classList.remove('active'); }
+      const c = document.getElementById('line-'+idx);
+      c.classList.add('active');
+      c.scrollIntoView({ block: 'center' });
       current = idx;
     }
+    fill.style.width = (audio.duration? (t/audio.duration*100):0) + '%';
+    curEl.textContent = fmt(t);
+  });
+  audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+  audio.addEventListener('play', () => playBtn.classList.add('playing'));
+  audio.addEventListener('pause', () => playBtn.classList.remove('playing'));
+
+  function toggle(){ if(audio.paused) audio.play().catch(()=>{}); else audio.pause(); }
+  playBtn.addEventListener('click', toggle);
+  audio.addEventListener('click', toggle);
+
+  bar.addEventListener('click', (e) => {
+    const r = bar.getBoundingClientRect();
+    const p = (e.clientX - r.left) / r.width;
+    if (audio.duration) audio.currentTime = p * audio.duration;
   });
 </script>
 </body>
