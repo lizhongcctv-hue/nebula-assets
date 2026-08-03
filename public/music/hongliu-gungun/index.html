@@ -1,22 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>洪流滚滚 · 传澈</title>
-<!-- Open Graph / 微信分享卡片 -->
-<meta property="og:title" content="洪流滚滚 · 传澈">
-<meta property="og:description" content="民族史诗 AI 原创歌曲 · 男声领唱 + 古筝琵琶大鼓 · 古韵念奴娇风">
+<title>娲祦婊氭粴 路 浼犳緢</title>
+<!-- Open Graph / 寰俊鍒嗕韩鍗＄墖 -->
+<meta property="og:title" content="娲祦婊氭粴 路 浼犳緢">
+<meta property="og:description" content="姘戞棌鍙茶瘲 AI 鍘熷垱姝屾洸 路 鐢峰０棰嗗敱 + 鍙ょ瓭鐞电惗澶ч紦 路 鍙ら煹蹇靛ゴ濞囬">
 <meta property="og:type" content="music.song">
 <meta property="og:url" content="https://nebula-assets.vercel.app/music/hongliu-gungun/">
 <meta property="og:image" content="https://nebula-assets.vercel.app/music/hongliu-gungun/cover.jpg">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="800">
-<meta property="music:song" content="https://nebula-assets.vercel.app/music/hongliu-gungun/song.mp3">
-<meta property="music:musician" content="传澈">
-<meta name="weixin:title" content="洪流滚滚 · 传澈">
+<meta property="music:song" content="https://nebula-assets.vercel.app/music/hongliu-gungun/song-v5.mp3">
+<meta property="music:musician" content="浼犳緢">
+<meta name="weixin:title" content="娲祦婊氭粴 路 浼犳緢">
 <meta name="weixin:image" content="https://nebula-assets.vercel.app/music/hongliu-gungun/cover.jpg">
-<meta name="weixin:description" content="民族史诗 · 男声领唱 + 古筝琵琶大鼓">
+<meta name="weixin:description" content="姘戞棌鍙茶瘲 路 鐢峰０棰嗗敱 + 鍙ょ瓭鐞电惗澶ч紦">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { height: 100%; }
@@ -111,10 +111,10 @@
 </head>
 <body>
   <div class="stage">
-    <img class="cover" src="cover.jpg" alt="洪流滚滚">
+    <img class="cover" src="cover.jpg" alt="娲祦婊氭粴">
     <div class="meta">
-      <h1>洪流滚滚</h1>
-      <p>民族史诗 · 男声领唱 · 传澈</p>
+      <h1>娲祦婊氭粴</h1>
+      <p>姘戞棌鍙茶瘲 路 鐢峰０棰嗗敱 路 浼犳緢</p>
     </div>
     <div class="lrc" id="lrc"></div>
   </div>
@@ -123,50 +123,50 @@
     <div class="time"><span id="cur">0:00</span><span id="dur">0:00</span></div>
     <button class="playbtn" id="play"></button>
   </div>
-  <audio id="audio" preload="auto" src="song.mp3"></audio>
+  <audio id="audio" preload="auto" src="song-v5.mp3"></audio>
 
 <script>
   const lyrics = [
-    {t:0.5, l:"洪流滚滚，"},
-    {t:4.2, l:"涤荡尽，"},
-    {t:7.9, l:"百年耻辱雪恨。"},
-    {t:11.6, l:"红船扬波初启迪，"},
-    {t:15.3, l:"而今翻天覆地。"},
-    {t:19.0, l:"秋收起义，"},
-    {t:22.7, l:"南昌举枪，"},
-    {t:26.4, l:"会师井冈山。"},
-    {t:30.1, l:"长征路险，"},
-    {t:33.8, l:"英雄血洒疆场。"},
-    {t:41.2, l:"延安灯火日夜，"},
-    {t:44.9, l:"挥毫绘就，"},
-    {t:48.6, l:"民族复兴图。"},
-    {t:52.3, l:"江山一统红旗展，"},
-    {t:56.0, l:"紧踏时代节拍。"},
-    {t:59.7, l:"破茧化蝶，"},
-    {t:63.4, l:"初心不变，"},
-    {t:67.1, l:"挥剑向长天。"},
-    {t:70.8, l:"屹立昆仑，"},
-    {t:74.5, l:"曙光在眼前！"},
-    {t:81.9, l:"洪流滚滚，"},
-    {t:85.6, l:"涤荡尽，"},
-    {t:89.3, l:"百年耻辱雪恨。"},
-    {t:93.0, l:"红船扬波初启迪，"},
-    {t:96.7, l:"而今翻天覆地。"},
-    {t:100.4, l:"秋收起义，"},
-    {t:104.1, l:"南昌举枪，"},
-    {t:107.8, l:"会师井冈山。"},
-    {t:111.5, l:"长征路险，"},
-    {t:115.2, l:"英雄血洒疆场。"},
-    {t:122.6, l:"延安灯火日夜，"},
-    {t:126.3, l:"挥毫绘就，"},
-    {t:130.0, l:"民族复兴图。"},
-    {t:133.7, l:"江山一统红旗展，"},
-    {t:137.4, l:"紧踏时代节拍。"},
-    {t:141.1, l:"破茧化蝶，"},
-    {t:144.8, l:"初心不变，"},
-    {t:148.5, l:"挥剑向长天。"},
-    {t:152.2, l:"屹立昆仑，"},
-    {t:154.0, l:"曙光在眼前！"}
+    {t:0.5, l:"娲祦婊氭粴锛?},
+    {t:4.2, l:"娑よ崱灏斤紝"},
+    {t:7.9, l:"鐧惧勾鑰昏颈闆仺銆?},
+    {t:11.6, l:"绾㈣埞鎵尝鍒濆惎杩紝"},
+    {t:15.3, l:"鑰屼粖缈诲ぉ瑕嗗湴銆?},
+    {t:19.0, l:"绉嬫敹璧蜂箟锛?},
+    {t:22.7, l:"鍗楁槍涓炬灙锛?},
+    {t:26.4, l:"浼氬笀浜曞唸灞便€?},
+    {t:30.1, l:"闀垮緛璺櫓锛?},
+    {t:33.8, l:"鑻遍泟琛€娲掔枂鍦恒€?},
+    {t:41.2, l:"寤跺畨鐏伀鏃ュ锛?},
+    {t:44.9, l:"鎸ユ缁樺氨锛?},
+    {t:48.6, l:"姘戞棌澶嶅叴鍥俱€?},
+    {t:52.3, l:"姹熷北涓€缁熺孩鏃楀睍锛?},
+    {t:56.0, l:"绱ц笍鏃朵唬鑺傛媿銆?},
+    {t:59.7, l:"鐮磋導鍖栬澏锛?},
+    {t:63.4, l:"鍒濆績涓嶅彉锛?},
+    {t:67.1, l:"鎸ュ墤鍚戦暱澶┿€?},
+    {t:70.8, l:"灞圭珛鏄嗕粦锛?},
+    {t:74.5, l:"鏇欏厜鍦ㄧ溂鍓嶏紒"},
+    {t:81.9, l:"娲祦婊氭粴锛?},
+    {t:85.6, l:"娑よ崱灏斤紝"},
+    {t:89.3, l:"鐧惧勾鑰昏颈闆仺銆?},
+    {t:93.0, l:"绾㈣埞鎵尝鍒濆惎杩紝"},
+    {t:96.7, l:"鑰屼粖缈诲ぉ瑕嗗湴銆?},
+    {t:100.4, l:"绉嬫敹璧蜂箟锛?},
+    {t:104.1, l:"鍗楁槍涓炬灙锛?},
+    {t:107.8, l:"浼氬笀浜曞唸灞便€?},
+    {t:111.5, l:"闀垮緛璺櫓锛?},
+    {t:115.2, l:"鑻遍泟琛€娲掔枂鍦恒€?},
+    {t:122.6, l:"寤跺畨鐏伀鏃ュ锛?},
+    {t:126.3, l:"鎸ユ缁樺氨锛?},
+    {t:130.0, l:"姘戞棌澶嶅叴鍥俱€?},
+    {t:133.7, l:"姹熷北涓€缁熺孩鏃楀睍锛?},
+    {t:137.4, l:"绱ц笍鏃朵唬鑺傛媿銆?},
+    {t:141.1, l:"鐮磋導鍖栬澏锛?},
+    {t:144.8, l:"鍒濆績涓嶅彉锛?},
+    {t:148.5, l:"鎸ュ墤鍚戦暱澶┿€?},
+    {t:152.2, l:"灞圭珛鏄嗕粦锛?},
+    {t:154.0, l:"鏇欏厜鍦ㄧ溂鍓嶏紒"}
   ];
 
   const lrcEl = document.getElementById('lrc');
